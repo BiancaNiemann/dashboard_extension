@@ -31,23 +31,11 @@ h1.time {
     text-align: center;
 }
 
-div#crypto {
+p.quote {
     font-size: 1.3rem;
+    text-align: center;
 }
 
-div#crypto > p {
-    margin: 0;
-}
-
-div#crypto-top {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-div#crypto-top > span {
-    margin-left: 10px;
-}
 
 div#weather {
     display: flex;
@@ -73,4 +61,19 @@ p.weather-temp {
     margin: 0;
     font-size: 1.7rem;
     margin-left: -10px;
+}
+
+.time{
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+.expression{
+    font-size: 5rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+span{
+    font-size: 1rem;
 }

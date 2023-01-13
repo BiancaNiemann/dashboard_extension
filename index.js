@@ -11,7 +11,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 		document.getElementById("author").textContent = `By: Dodi Achmad`
     })
 
-fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
+fetch('https://favqs.com/api/qotd')
     .then(res => {
         if (!res.ok) {
             throw Error("Something went wrong")
@@ -19,27 +19,30 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
         return res.json()
     })
     .then(data => {
-        document.getElementById("crypto-top").innerHTML = `
-            <img src=${data.image.small} />
-            <span>${data.name}</span>
-        `
-        document.getElementById("crypto").innerHTML += `
-            <p>🎯: $${data.market_data.current_price.usd}</p>
-            <p>👆: $${data.market_data.high_24h.usd}</p>
-            <p>👇: $${data.market_data.low_24h.usd}</p>
+        document.getElementById("quote").innerHTML += `
+            <p class="quote">${data.quote.body}</p>
         `
     })
     .catch(err => console.error(err))
 
 function getCurrentTime() {
     const date = new Date()
-    document.getElementById("time").textContent = date.toLocaleTimeString("en-us", {timeStyle: "short"})
+    const hour = date.getHours()
+    const actualDate = date.toLocaleDateString("de-DE");
+    const actualTime = date.toLocaleTimeString("en-us", {timeStyle: "short"})
+    const timeOfDay = hour >=0 && hour <12 ? "Good Morning" 
+        : hour >=12 && hour <18 ? "Good Afternoon"
+        : "Good Evening"
+    document.getElementById("time").innerHTML = `
+        <h1 class="time">${actualTime} <span>on the</span> ${actualDate}</h1>
+        <h2 class="expression">${timeOfDay}</h2>
+    `
 }
 
 setInterval(getCurrentTime, 1000)
 
 navigator.geolocation.getCurrentPosition(position => {
-    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`)
+    fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`)
         .then(res => {
             if (!res.ok) {
                 throw Error("Weather data not available")
@@ -56,3 +59,4 @@ navigator.geolocation.getCurrentPosition(position => {
         })
         .catch(err => console.error(err))
 });
+
