@@ -1,3 +1,4 @@
+
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature")
     .then(res => res.json())
     .then(data => {
@@ -11,7 +12,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
 		document.getElementById("author").textContent = `By: Dodi Achmad`
     })
 
-fetch('https://favqs.com/api/qotd')
+/*fetch('https://favqs.com/api/qotd')
     .then(res => {
         if (!res.ok) {
             throw Error("Something went wrong")
@@ -23,7 +24,7 @@ fetch('https://favqs.com/api/qotd')
             <p class="quote">${data.quote.body}</p>
         `
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err))*/
 
 function getCurrentTime() {
     const date = new Date()
@@ -59,4 +60,57 @@ navigator.geolocation.getCurrentPosition(position => {
         })
         .catch(err => console.error(err))
 });
+
+//TO DO LIST
+
+const myInput = document.getElementById("my-input")
+const listBtn = document.getElementById("list-btn")
+const listItems = document.getElementById("list-items")
+const deleteBtn = document.querySelector('.done-btn')
+
+const myList = []
+
+listBtn.addEventListener('click', addListItems)
+deleteBtn.addEventListener('click', deleteListItems)
+
+
+//ADD TO LIST ARRAY
+function addListItems(e){
+    e.preventDefault()
+
+    myList.push({name: myInput.value, 
+                id:(new Date()).getTime(),
+                isDone: false})
+
+    
+    myInput.value=''
+    renderHtml()
+}
+
+//CREATE HTML ELEMENTS TO RENDER TO THE PAGE
+function renderHtml(){
+    let html=""
+    myList.forEach(item => {
+        html += `
+                    <div class="list-item" data-key=${item.id}>
+                        <li>${item.name}</li>
+                        <button class="done-btn" id=${item.id}>Done</button>
+                    </div>
+                `
+        })
+    listItems.innerHTML = html
+}
+
+// DELETE ITEM FROM LIST
+function deleteListItems(e){
+ myList.map(item => {
+    if (item.id == e.target.id){
+        const indexOfItem = myList.indexOf(item)
+        myList.splice(indexOfItem, 1)
+    }
+ })
+ renderHtml()
+}
+
+
 
