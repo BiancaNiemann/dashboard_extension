@@ -3,7 +3,6 @@
 }    
 
 body {
-    margin: 0;
     background: no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -14,36 +13,44 @@ body {
     text-shadow: 0px 0px 20px #242424;
 }
 
+main,
+div.top,
+div#weather,
+.list-item{
+    display: flex;
+}
+
+main,
+div.top {
+    justify-content: space-between;
+}
+
 main {
     padding: 15px;
     height: 100vh;
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
-div.top {
-    display: flex;
-    justify-content: space-between;
-}
-
-h1.time {
+h1.time,
+.expression {
     text-align: center;
 }
 
-p.quote {
-    font-size: 1.3rem;
-    text-align: center;
+.quote-box{
+    width: 50%;
+    padding-right: 60px;
+    text-align: end;
+    position: absolute;
+    bottom: 10px;
+    margin-left: 50%;
 }
-
 
 div#weather {
-    display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-self: flex-start;
-    margin-top: -20px;
+    margin-right: 40px;
 }
 
 div#weather > img {
@@ -53,37 +60,91 @@ div#weather > img {
 p.weather-city {
     width: 100%;
     text-align: right;
-    margin: 0;
     margin-top: -10px;
 }
 
 p.weather-temp {
-    margin: 0;
     font-size: 1.7rem;
-    margin-left: -10px;
 }
 
-.time{
+.time, .expression{
     font-size: 4rem;
     margin-bottom: 0;
 }
 
-.expression{
-    font-size: 5rem;
-    margin-top: 0;
-    text-align: center;
+.time-box{
+    width: 100%;
+    position: fixed;
+    top: 30%;
+    justify-content: center;
 }
 
 span{
     font-size: 1rem;
 }
 
-.list-item{
-    display: flex;
-    list-style: none;
+.author{
+    position: absolute;
+    top: 20px;
+    left: 45%
 }
 
-li{
-    width: 150px
+/*TO DO LIST*/
+
+.todo{
+    position: absolute;
+    background: rgba(218, 243, 242, 0.3);
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 200px;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 350px;
+}
+
+h2{
+    text-shadow: none;
+    margin-top: 0;
+    text-align: center;
+}
+
+ul{
+    padding-left: 0px;
+}
+
+.input-box, .list-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-item{
+    height: 30px;
+    list-style: none;
+    align-items: center;
+    padding-left: 5px;
+}
+
+input{
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    color: #242424;
+    width: 250px;
+}
+
+button{
+    color: inherit;
+    background-color: #242424;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    height: 2.25em;
+    cursor: pointer;
+    width: 50px
+}
+
+.user-input{
+    margin: 20px;
 }
 

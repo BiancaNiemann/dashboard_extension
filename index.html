@@ -7,19 +7,25 @@
     <body>
         <main>    
             <div class="top">
-                <div id="todo">
-                    <h2>My To Do List</h2>
-                    <form>
-                        <input type="text" id="my-input" placeholder="Whats next...">
-                        <button id="list-btn" type="submit">Add</button>
-                    </form>
-                    <ul id="list-items" class="done-btn"></ul>
-                </div>
+                <div id="quote"></div>
                 <div id="weather"></div>
             </div>
-            <div id="time"></div>
-            <div id="quote"></div>
-            <p id="author"></p>
+            <div id="time" class="time-box"></div>
+            <form class="user-input">
+                <input type="text" id="user-input" placeholder="Enter your name" />
+                <button id="user-btn" class="user-btn" type="submit">Submit</button>
+            </form>
+            <p id="author" class="author"></p>
+            <div id="todo" class="todo">
+                <h2 id="user-to-do-list">My to do List</h2>
+                <form>
+                    <div class="input-box">
+                        <input type="text" id="my-input" placeholder="Whats next...">
+                        <button id="list-btn" class="list-btn" type="submit">Add</button>
+                    </div>
+                </form>
+                <ul id="list-items" class="done-btn"></ul>
+            </div>
         </main>
         <script src="index.js"></script>
     </body>
