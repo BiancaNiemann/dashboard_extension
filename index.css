@@ -10,48 +10,60 @@ body {
     background-size: cover;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 0px 0px 20px #242424;
+    text-shadow: 5px 5px 5px #242424;
 }
 
 main,
 div.top,
 div#weather,
-.list-item{
+.list-item,
+.input-box{
     display: flex;
 }
 
 main,
-div.top {
+div.top,
+.input-box, 
+.list-item {
     justify-content: space-between;
 }
 
 main {
-    padding: 15px;
-    height: 100vh;
     flex-direction: column;
 }
 
 h1.time,
-.expression {
+.expression,
+h2 {
     text-align: center;
+    text-shadow: inherit;
 }
 
 .quote-box{
     width: 50%;
-    padding-right: 60px;
+    padding-right: 40px;
     text-align: end;
-    position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     margin-left: 50%;
 }
 
+.user-input,
+.quote-box{
+    position: absolute;
+}
+
 div#weather {
-    align-items: center;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-self: flex-start;
     margin-right: 40px;
 }
+
+div#weather,
+.list-item{
+    align-items: center;
+}
+
 
 div#weather > img {
     width: 70px;
@@ -68,60 +80,48 @@ p.weather-temp {
 }
 
 .time, .expression{
-    font-size: 4rem;
+    font-size: 2rem;
     margin-bottom: 0;
 }
 
 .time-box{
-    width: 100%;
     position: fixed;
-    top: 30%;
-    justify-content: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 span{
     font-size: 1rem;
 }
 
-.author{
-    position: absolute;
-    top: 20px;
-    left: 45%
-}
-
 /*TO DO LIST*/
 
 .todo{
-    position: absolute;
     background: rgba(218, 243, 242, 0.3);
     padding: 20px;
     border-radius: 8px;
     min-height: 200px;
     margin-top: 20px;
     margin-left: 20px;
-    width: 350px;
+    width: 330px;
 }
 
 h2{
-    text-shadow: none;
+    text-shadow: 0px 0px 4px black;
     margin-top: 0;
-    text-align: center;
 }
 
 ul{
     padding-left: 0px;
 }
 
-.input-box, .list-item{
-    display: flex;
-    justify-content: space-between;
-}
-
 .list-item{
     height: 30px;
     list-style: none;
-    align-items: center;
     padding-left: 5px;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 5px black;
 }
 
 input{
@@ -129,7 +129,7 @@ input{
     border: none;
     border-radius: 5px;
     color: #242424;
-    width: 250px;
+    width: 230px;
 }
 
 button{
@@ -145,6 +145,18 @@ button{
 }
 
 .user-input{
-    margin: 20px;
+    margin: 20px 20px 0px;
+    bottom: 50px;
 }
 
+@media (min-width: 1025px) {
+    .time, .expression{
+        font-size: 3rem;
+    }
+}
+
+@media (min-width:1400px) {
+    .time, .expression{
+        font-size: 4rem;
+    }
+}
