@@ -105,11 +105,10 @@ function addListItems(e){
     e.preventDefault()
 
     if (myInput.value.length >= 1){
-        toDo = {
+        myList.push({
             name: myInput.value, 
             id:(new Date()).getTime(),
-            isDone: false}
-        myList.push(toDo)
+            isDone: false})
     } else {
         alert('Please enter in a task to do')
     }
@@ -122,15 +121,15 @@ function addListItems(e){
 
 // DELETE ITEM FROM LIST
 function deleteListItems(e){
-    myList.map(item => {
-       if (item.id == e.target.id){
+    return myList.map(item => {
+        if (item.id == e.target.id){
            const indexOfItem = myList.indexOf(item)
            myList.splice(indexOfItem, 1)
        }
+      window.localStorage.setItem("myList", JSON.stringify(myList) || [])
     })
-    renderHtml()
-    window.localStorage.setItem("myList", JSON.stringify(myList) || [])
-   }
+    //renderHtml()
+}
    
 
 //CREATE HTML ELEMENTS TO RENDER TO THE PAGE
@@ -138,7 +137,7 @@ function renderHtml(){
     let html=""
     
     myList.map(item => {
-        html += `
+        return html += `
                     <div class="list-item" data-key=${item.id}>
                         <li>${item.name}</li>
                         <button class="done-btn" id=${item.id}>Delete</button>
