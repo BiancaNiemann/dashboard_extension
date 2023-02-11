@@ -105,7 +105,7 @@ function addListItems(e){
     e.preventDefault()
 
     if (myInput.value.length >= 1){
-        myList.push({
+        return myList.push({
             name: myInput.value, 
             id:(new Date()).getTime(),
             isDone: false})
