@@ -94,7 +94,7 @@ const userToDoList = document.getElementById('user-to-do-list')
 userToDoList.innerText = `${userName}'s To Do List`
 
 //let myList = []
-
+let toDo = {}
 let myList =  JSON.parse(localStorage.getItem('myList'))
 
 listBtn.addEventListener('click', addListItems)
@@ -105,9 +105,11 @@ function addListItems(e){
     e.preventDefault()
 
     if (myInput.value.length >= 1){
-        myList.push({name: myInput.value, 
+        toDo = {
+            name: myInput.value, 
             id:(new Date()).getTime(),
-            isDone: false})
+            isDone: false}
+        myList.push(toDo)
     } else {
         alert('Please enter in a task to do')
     }
