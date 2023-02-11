@@ -136,8 +136,8 @@ function deleteListItems(e){
 function renderHtml(){
     let html=""
     
-    myList.map(item => {
-        return html += `
+    return myList.map(item => {
+            html += `
                     <div class="list-item" data-key=${item.id}>
                         <li>${item.name}</li>
                         <button class="done-btn" id=${item.id}>Delete</button>
