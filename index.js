@@ -121,6 +121,7 @@ function addListItems(e){
 
 // DELETE ITEM FROM LIST
 function deleteListItems(e){
+    console.log(myList)
     myList.map(item => {
        if (item.id == e.target.id){
            const indexOfItem = myList.indexOf(item)
@@ -134,8 +135,8 @@ function deleteListItems(e){
 //CREATE HTML ELEMENTS TO RENDER TO THE PAGE
 function renderHtml(){
     let html=""
-    let mySavedList =  JSON.parse(localStorage.getItem('myList'))
-    mySavedList.map(item => {
+    myList =  JSON.parse(localStorage.getItem('myList'))
+    myList.map(item => {
         html += `
                     <div class="list-item" data-key=${item.id}>
                         <li>${item.name}</li>
