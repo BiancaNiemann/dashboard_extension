@@ -95,10 +95,13 @@ userToDoList.innerText = `${userName}'s To Do List`
 
 let myList = []
 
-let mySavedList =  JSON.parse(window.localStorage.getItem('myList'))
-
 listBtn.addEventListener('click', addListItems)
 deleteBtn.addEventListener('click', deleteListItems)
+
+function saveToLocal(){
+    localStorage.setItem("myList", JSON.stringify(myList))
+    renderHtml()
+}
 
 //ADD TO LIST ARRAY
 function addListItems(e){
@@ -113,8 +116,7 @@ function addListItems(e){
     }
         
     myInput.value=''
-    renderHtml()
-    window.localStorage.setItem("myList", JSON.stringify(myList) || [])
+    saveToLocal()
 }
 
 // DELETE ITEM FROM LIST
@@ -125,16 +127,15 @@ function deleteListItems(e){
            myList.splice(indexOfItem, 1)
        }
     })
-    renderHtml()
-    window.localStorage.setItem("myList", JSON.stringify(myList) || [])
+    saveToLocal()
    }
    
 
 //CREATE HTML ELEMENTS TO RENDER TO THE PAGE
 function renderHtml(){
     let html=""
-    
-    myList.map(item => {
+    let mySavedList =  JSON.parse(localStorage.getItem('myList'))
+    mySavedList.map(item => {
         html += `
                     <div class="list-item" data-key=${item.id}>
                         <li>${item.name}</li>
