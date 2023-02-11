@@ -95,7 +95,7 @@ userToDoList.innerText = `${userName}'s To Do List`
 
 //let myList = []
 
-let myList =  JSON.parse(localStorage.getItem('myList') || [])
+let myList =  JSON.parse(localStorage.getItem('myList'))
 
 listBtn.addEventListener('click', addListItems)
 deleteBtn.addEventListener('click', deleteListItems)
