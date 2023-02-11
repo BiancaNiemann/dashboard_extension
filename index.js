@@ -93,9 +93,9 @@ const userToDoList = document.getElementById('user-to-do-list')
 
 userToDoList.innerText = `${userName}'s To Do List`
 
-//let myList = []
-let toDo = {}
-let myList =  JSON.parse(localStorage.getItem('myList'))
+let myList = []
+
+let mySavedList =  JSON.parse(window.localStorage.getItem('myList'))
 
 listBtn.addEventListener('click', addListItems)
 deleteBtn.addEventListener('click', deleteListItems)
@@ -105,8 +105,7 @@ function addListItems(e){
     e.preventDefault()
 
     if (myInput.value.length >= 1){
-        return myList.push({
-            name: myInput.value, 
+        myList.push({name: myInput.value, 
             id:(new Date()).getTime(),
             isDone: false})
     } else {
@@ -116,28 +115,27 @@ function addListItems(e){
     myInput.value=''
     renderHtml()
     window.localStorage.setItem("myList", JSON.stringify(myList) || [])
-    console.log(myList)
 }
 
 // DELETE ITEM FROM LIST
 function deleteListItems(e){
-    return myList.map(item => {
-        if (item.id == e.target.id){
+    myList.map(item => {
+       if (item.id == e.target.id){
            const indexOfItem = myList.indexOf(item)
            myList.splice(indexOfItem, 1)
        }
-      window.localStorage.setItem("myList", JSON.stringify(myList) || [])
     })
-    //renderHtml()
-}
+    renderHtml()
+    window.localStorage.setItem("myList", JSON.stringify(myList) || [])
+   }
    
 
 //CREATE HTML ELEMENTS TO RENDER TO THE PAGE
 function renderHtml(){
     let html=""
     
-    return myList.map(item => {
-            html += `
+    myList.map(item => {
+        html += `
                     <div class="list-item" data-key=${item.id}>
                         <li>${item.name}</li>
                         <button class="done-btn" id=${item.id}>Delete</button>
