@@ -93,9 +93,9 @@ const userToDoList = document.getElementById('user-to-do-list')
 
 userToDoList.innerText = `${userName}'s To Do List`
 
-let myList = []
+//let myList = []
 
-//let myList =  JSON.parse(localStorage.getItem('myList'))
+let myList =  JSON.parse(localStorage.getItem('myList'))
 
 listBtn.addEventListener('click', addListItems)
 deleteBtn.addEventListener('click', deleteListItems)
@@ -114,7 +114,7 @@ function addListItems(e){
         
     myInput.value=''
     renderHtml()
-    //localStorage.setItem("myList", JSON.stringify(myList))
+    window.localStorage.setItem("myList", JSON.stringify(myList) || [])
     console.log(myList)
 }
 
@@ -127,7 +127,7 @@ function deleteListItems(e){
        }
     })
     renderHtml()
-    //localStorage.setItem("myList", JSON.stringify(myList))
+    window.localStorage.setItem("myList", JSON.stringify(myList) || [])
    }
    
 
