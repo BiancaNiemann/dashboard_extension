@@ -1,21 +1,18 @@
-# cdQDW2Uk
+# Scrimba Dashboard Extension Project
 
-Quick start:
+## About
 
-```
-$ npm install
-$ npm start
-````
+In this project for the Scrimba Front-end developer Career Path we learnt how to create our own Dashboard extension for Google Chrome, it is based on the Momentum Dashboard.
 
-Head over to https://vitejs.dev/ to learn more about using vite
-## About Scrimba
+We added features using APIS like current time and date, openweather API, motivational quotes and background images from unsplash
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+As an stretch goal I also added a ToDo list that saves the info to localStorage
 
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+## What I Learnt doing this project
+
+- APIs and how to fetch them: open weather, Unsplash, and Coin Gecko(although I did not use this in my final code)
+- Chrome Extension
+- Javascript
+- Flexbox
 
 Happy Coding!
